@@ -1,82 +1,43 @@
-import logo from "./logo.svg";
-import React, { Component } from "react";
-import "./App.css";
+import React from "react";
+import NewNote from "./components/NewNote";
+import NoteList from "./components/NoteList";
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      newItem: "",
-      list: [],
+      notes: [],
     };
   }
 
-  updateInput(key, value) {
-    this.setState({
-      [key]: value,
+  addNewNote(note) {
+    this.setState((prevState) => {
+      return { notes: [...prevState.notes, note] };
     });
   }
 
-  addItem() {
-    const timeCreated = new Date();
-
-    const newItem = {
-      time: `${timeCreated.toLocaleString("eng", {
-        month: "long",
-      })} ${timeCreated.getHours()} : ${timeCreated.getMinutes()}`,
-      id: 1 + Math.random(),
-      value: this.state.newItem,
-    };
-
-    const list = [...this.state.list];
-
-    list.push(newItem);
-
-    this.setState({
-      list,
-      newItem: "",
+  deleteNote(index) {
+    this.setState((prevState) => {
+      return {
+        notes: [
+          ...prevState.notes.slice(0, index),
+          ...prevState.notes.slice(index + 1),
+        ],
+      };
     });
-  }
-
-  deleteItem(id) {
-    const list = [...this.state.list];
-    const updatedList = list.filter((item) => item.id !== id);
-    this.setState({ list: updatedList });
   }
 
   render() {
     return (
       <div>
-        Add an Item
-        <br />
-        <input
-          type="textarea"
-          value={this.state.newItem}
-          onChange={(e) => this.updateInput("newItem", e.target.value)}
+        <NewNote onSaveNote={(note) => this.addNewNote(note)} />
+        <NoteList
+          notes={this.state.notes}
+          onDeleteNote={(index) => this.deleteNote(index)}
         />
-        <button onClick={() => this.addItem()}>Add +</button>
-        <br />
-        <ul>
-          {this.state.list.map((item) => {
-            return (
-              <li key={item.id}>
-                {item.value} {item.time}
-                <button
-                  onClick={() => {
-                    if (window.confirm("Are u sure?")) {
-                      this.deleteItem(item.id);
-                    }
-                  }}
-                >
-                  X
-                </button>
-              </li>
-            );
-          })}
-        </ul>
       </div>
     );
   }
 }
+
 export default App;
