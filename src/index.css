@@ -82,7 +82,8 @@ form {
   justify-content: center;
 }
 
-input {
+input,
+textarea {
   background-color: gainsboro;
 }
 
@@ -90,7 +91,8 @@ input {
   display: ;
 }
 
-.titleDiv {
+.titleDiv,
+.contentDiv {
   display: flex;
 }
 
@@ -100,4 +102,8 @@ input {
 
 #contentGrid {
   overflow: auto;
+}
+
+label {
+  align-self: center;
 }

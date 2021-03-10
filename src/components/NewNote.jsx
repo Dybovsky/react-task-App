@@ -50,10 +50,10 @@ class NewNote extends React.Component {
                     onChange={(event) => this.saveTitle(event.target.value)}
                     />
                 </div>
-                <div>
+                <div class="contentDiv">
                     <label htmlFor="content">Content</label>
-                    <input
-                    type="textarea"
+                    <textarea
+                    //type="textarea"
                     name="content"
                     id="content"
                     value={this.state.content}
