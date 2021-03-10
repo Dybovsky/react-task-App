@@ -11,8 +11,12 @@ class NewNote extends React.Component {
 
     saveNote(event){
         event.preventDefault();
+        const timeCreated = new Date();
         const note = {
             id: Date.now(),
+            time: `${timeCreated.getDate()} ${timeCreated.toLocaleString("eng", {
+                month: "long",
+              })} ${timeCreated.getHours()} : ${timeCreated.getMinutes()}`,
             title: this.state.title,
             content: this.state.content,
         };
@@ -33,10 +37,13 @@ class NewNote extends React.Component {
     render(){
         return(
             <form onSubmit={(event) => this.saveNote(event)}>
-               <div>
+                <div class="form">
+               <div class="titleDiv">
                     <label htmlFor="title">Title</label>
                     <input
                     type="textarea"
+                    // width="300px"
+                    // height="150px"
                     name="title"
                     id="title"
                     value={this.state.title}
@@ -53,8 +60,10 @@ class NewNote extends React.Component {
                     onChange={(event) => this.saveContent(event.target.value)}
                     />
                 </div>
-                <div>
-                    <button type="submit">Add +</button>
+                <div class="btn">
+                    <button type="submit"
+                    id="btnAdd">Add +</button>
+                </div>
                 </div>
             </form>
         )

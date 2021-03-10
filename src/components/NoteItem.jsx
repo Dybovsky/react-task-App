@@ -1,16 +1,21 @@
 function NoteItem(props){
     const { note } = props;
-    const {title, content} = note;
+    const {title, content, time} = note;
     //console it
     return(
         <li>
+            <div>{time}</div>
             <div>
                 {title}
             </div>
-            <div>
+            <div id="contentGrid">
                 {content}
             </div>
-            <button onClick={props.onDelete}>X</button>
+            <button onClick={() => {
+                    if (window.confirm("Are u sure?")) {
+                      props.onDelete();
+                    }
+                  }}>X</button>
         </li>
     )
 
