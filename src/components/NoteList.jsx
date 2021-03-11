@@ -9,6 +9,7 @@ function NoteList(props){
             key={note.id}
             note={note}
             onDelete={() => props.onDeleteNote(index)}
+            openModal={props.openModal}
             />
             )}
         </ul>

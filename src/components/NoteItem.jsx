@@ -2,8 +2,8 @@ function NoteItem(props){
     const { note } = props;
     const {title, content, time} = note;
     //console it
-    return(
-        <li>
+    return(<>
+        <li onClick={() => {props.openModal()}}>
             <div>{time}</div>
             <div>
                 {title}
@@ -11,14 +11,14 @@ function NoteItem(props){
             <div id="contentGrid">
                 {content}
             </div>
+        </li>
             <button onClick={() => {
                     if (window.confirm("Are u sure?")) {
                       props.onDelete();
                     }
                   }}>X</button>
-        </li>
+</>
     )
-
 }
 
 export default NoteItem;
