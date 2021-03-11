@@ -28,6 +28,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.notes);
     return (
       <div>
         <NewNote onSaveNote={(note) => this.addNewNote(note)} />

@@ -37,8 +37,8 @@ class NewNote extends React.Component {
     render(){
         return(
             <form onSubmit={(event) => this.saveNote(event)}>
-                <div class="form">
-               <div class="titleDiv">
+                <div className="form">
+               <div className="titleDiv">
                     <label htmlFor="title">Title</label>
                     <input
                     type="textarea"
@@ -50,7 +50,7 @@ class NewNote extends React.Component {
                     onChange={(event) => this.saveTitle(event.target.value)}
                     />
                 </div>
-                <div class="contentDiv">
+                <div className="contentDiv">
                     <label htmlFor="content">Content</label>
                     <textarea
                     //type="textarea"
@@ -60,7 +60,7 @@ class NewNote extends React.Component {
                     onChange={(event) => this.saveContent(event.target.value)}
                     />
                 </div>
-                <div class="btn">
+                <div className="btn">
                     <button type="submit"
                     id="btnAdd">Add +</button>
                 </div>
