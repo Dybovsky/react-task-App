@@ -50,6 +50,9 @@ class App extends React.Component {
           edit={false}
           btnText="Add + "
         />
+        <br></br>
+        <br></br>
+        <br></br>
         <NoteList
           notes={this.state.notes}
           onDeleteNote={(index) => this.deleteNote(index)}

@@ -6,6 +6,7 @@ function NoteList(props){
         <ul>
             {props.notes.map((note, index) => 
             <NoteItem
+            
             key={note.id}
             note={note}
             onDelete={() => props.onDeleteNote(index)}

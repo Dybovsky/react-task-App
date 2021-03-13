@@ -62,6 +62,7 @@ ul {
 }
 
 li {
+  border-radius: 5px;
   padding: 15px;
   display: grid;
   background-color: cornflowerblue;
@@ -106,4 +107,22 @@ ul button {
 
 label {
   align-self: center;
+}
+
+.modal-dialog {
+  width: 0px;
+  height: 0px;
+  padding: 300px;
+}
+
+li div {
+  padding: 6px;
+  background-color: burlywood;
+  border-radius: 5px;
+  text-align: center;
+  align-self: center;
+}
+
+#editTime {
+  color: darkgrey;
 }

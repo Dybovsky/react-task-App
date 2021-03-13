@@ -12,6 +12,7 @@ class NoteItem extends React.Component {
 
     openModal() {
         this.setState({ isOpen: true });
+        
       }
     
       closeModal() {
@@ -24,15 +25,17 @@ class NoteItem extends React.Component {
     return(
     <>
         <li onClick={() => this.openModal()}>
-            <div>{this.props.note.time}</div>
+            <div>{this.props.note.time}
+            
+            <p id="editTime">
+                {this.props.note.editTime}
+            </p>
+            </div>
             <div>
                 {this.props.note.title}
             </div>
             <div id="contentGrid">
                 {this.props.note.content}
-            </div>
-            <div>
-                {this.props.note.editTime}
             </div>
            
         </li>
