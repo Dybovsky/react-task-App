@@ -21,7 +21,8 @@ class NoteItem extends React.Component {
 
     
     render(){
-    return(<>
+    return(
+    <>
         <li onClick={() => this.openModal()}>
             <div>{this.props.note.time}</div>
             <div>
@@ -29,6 +30,9 @@ class NoteItem extends React.Component {
             </div>
             <div id="contentGrid">
                 {this.props.note.content}
+            </div>
+            <div>
+                {this.props.note.editTime}
             </div>
            
         </li>
@@ -38,6 +42,12 @@ class NoteItem extends React.Component {
                 }
             }}>X</button>
         <NewModal
+        onEditNote={
+            (editedNote) => {this.props.onEditNote(editedNote)
+            
+                this.closeModal()
+            }
+        }
         show={this.state.isOpen}
         onHide={() => this.closeModal()}
         note={this.props.note} />

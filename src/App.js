@@ -27,13 +27,33 @@ class App extends React.Component {
     });
   }
 
+  addEditedNote(editedNote) {
+    this.setState((prevState) => {
+      return {
+        notes: prevState.notes.map((note) => {
+          if (note.id === editedNote.id) {
+            return editedNote;
+          } else {
+            return note;
+          }
+        }),
+      };
+    });
+    console.log(editedNote);
+  }
+
   render() {
     return (
       <div>
-        <NewNote onSaveNote={(note) => this.addNewNote(note)} />
+        <NewNote
+          onSaveNote={(note) => this.addNewNote(note)}
+          edit={false}
+          btnText="Add + "
+        />
         <NoteList
           notes={this.state.notes}
           onDeleteNote={(index) => this.deleteNote(index)}
+          onEditNote={(editedNote) => this.addEditedNote(editedNote)}
         />
       </div>
     );

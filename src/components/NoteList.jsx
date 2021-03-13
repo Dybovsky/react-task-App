@@ -8,7 +8,10 @@ function NoteList(props){
             <NoteItem
             key={note.id}
             note={note}
-            onDelete={() => props.onDeleteNote(index)}/>)}
+            onDelete={() => props.onDeleteNote(index)}
+            onEditNote={(editedNote) => props.onEditNote(editedNote)}
+            
+            />)}
             
         </ul>
     )
