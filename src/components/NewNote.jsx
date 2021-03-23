@@ -34,6 +34,8 @@ class NewNote extends React.Component {
     
     onEditOrAdd(e){
         e.preventDefault();
+        if((!this.state.content) || (!this.state.title))
+      return;
         if(this.props.edit){
             this.editNote()
            
@@ -64,13 +66,11 @@ class NewNote extends React.Component {
                <div className="titleDiv">
                     <label htmlFor="title">Title</label>
                     <input
-                    type="textarea"
-                    // width="300px"
-                    // height="150px"
-                    name="title"
-                    id="title"
-                    value={this.state.title}
-                    onChange={(event) => this.saveTitle(event.target.value)}
+                        type="textarea"
+                        name="title"
+                        id="title"
+                        value={this.state.title}
+                        onChange={(event) => this.saveTitle(event.target.value)}
                     />
                 </div>
                 <div className="contentDiv">

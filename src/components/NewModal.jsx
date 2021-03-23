@@ -7,8 +7,8 @@ import NewNote from './NewNote';
 class NewModal extends React.Component{
     constructor(props){
         super(props);
-        this.state = {}
-        // consol props
+        
+       
     }
 
 
@@ -16,15 +16,9 @@ class NewModal extends React.Component{
     render(){
       return (
         <Modal 
-          
           show={this.props.show}
           onHide={this.props.onHide}>
             
-          {/* <Modal.Header closeButton> */}
-            {/* <Modal.Title>
-              {this.props.note.title}
-            </Modal.Title> */}
-          {/* </Modal.Header> */}
         <NewNote 
           title={this.props.note.title} 
           content={this.props.note.content} 
@@ -34,11 +28,8 @@ class NewModal extends React.Component{
           onEditNote={(editedNote) => this.props.onEditNote(editedNote)}
           >
 
-          </NewNote>
-          {/* <Modal.Body>
-            {this.props.note.content}
-          </Modal.Body>
-         */}
+        </NewNote>
+       
         </Modal>
     
   )}

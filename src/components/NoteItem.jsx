@@ -24,7 +24,9 @@ class NoteItem extends React.Component {
     render(){
     return(
     <>
-        <li onClick={() => this.openModal()}>
+        <li 
+        style={{ cursor: 'pointer' }}
+        onClick={() => this.openModal()}>
             <div>{this.props.note.time}
             
             <p id="editTime">
